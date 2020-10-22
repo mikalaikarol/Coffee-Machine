@@ -111,7 +111,9 @@ def fill_ingredients():
 
 
 def take_money():
-    pass
+    global money_storage
+    money_storage = 0
+    show_left_ingredients()
 
 
 show_left_ingredients()
