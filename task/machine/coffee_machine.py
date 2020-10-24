@@ -37,6 +37,7 @@ def calculate_usage_espresso():
     elif cups_storage < cups_usage:
         print("Sorry, not enough cups!")
     else:
+        print("I have enough resources, making you a coffee!")
         water_storage = water_storage - water_usage
         coffee_storage = coffee_storage - coffee_usage
         money_storage = money_storage + cost
@@ -67,6 +68,7 @@ def calculate_usage_latte():
     elif cups_storage < cups_usage:
         print("Sorry, not enough cups!")
     else:
+        print("I have enough resources, making you a coffee!")
         water_storage = water_storage - water_usage
         coffee_storage = coffee_storage - coffee_usage
         milk_storage = milk_storage - milk_usage
@@ -98,6 +100,7 @@ def calculate_usage_cappuccino():
     elif cups_storage < cups_usage:
         print("Sorry, not enough cups!")
     else:
+        print("I have enough resources, making you a coffee!")
         water_storage = water_storage - water_usage
         coffee_storage = coffee_storage - coffee_usage
         milk_storage = milk_storage - milk_usage
@@ -111,14 +114,16 @@ def output_cappuccino():
 
 def buy_coffee():
     print("")
-    choice = int(input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino: "))
-    if choice == 1:
+    choice = input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu: ")
+    if str(choice) == "back":
+        return
+    if int(choice) == 1:
         output_espresso()
 
-    if choice == 2:
+    if int(choice) == 2:
         output_latte()
 
-    if choice == 3:
+    if int(choice) == 3:
         output_cappuccino()
 
 
@@ -133,10 +138,10 @@ def fill_ingredients():
     add_milk = int(input("Write how many ml of milk do you want to add: "))
     add_coffee = int(input("Write how many grams of coffee beans do you want to add: "))
     add_cups = int(input("Write how many disposable cups of coffee do you want to add: "))
-    water_storage = water_storage + add_water
-    coffee_storage = coffee_storage + add_coffee
-    milk_storage = milk_storage + add_milk
-    cups_storage = cups_storage + add_cups
+    water_storage += add_water
+    coffee_storage += add_coffee
+    milk_storage += add_milk
+    cups_storage += add_cups
 
 
 def take_money():
